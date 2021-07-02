@@ -7,4 +7,8 @@ routes.get("/", (req, res) => {
 	return res.render(views + "index");
 });
 
+routes.get("/admin", (req, res) => {
+	return res.render(views + "admin");
+});
+
 module.exports = routes;
