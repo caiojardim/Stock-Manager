@@ -24,7 +24,7 @@
 					</div>
 					<div class="input-wrapper price">
 						<label for="price">Preço:</label>
-						<input type="number" id="price" name="price" />
+						<input type="number" step="0.01" id="price" name="price" />
 					</div>
 					<button class="add">+</button>
 				</div>
@@ -39,10 +39,11 @@
 					</tr>
 				</thead>
 				<tbody>
+					<% products.forEach((product) => { %>
 					<tr>
-						<td class="name">Farofa</td>
-						<td class="amount">10</td>
-						<td class="price">R$ 3.50</td>
+						<td class="name"><%= product.name %></td>
+						<td class="amount"><%= product.amount %></td>
+						<td class="price">R$<%= product.price.replace('.', ',') %></td>
 						<td class="edit">
 							<button>
 								<img src="/images/edit-24.svg" alt="Editar Produto" />
@@ -54,6 +55,7 @@
 							</button>
 						</td>
 					</tr>
+					<% }) %>
 				</tbody>
 			</table>
 		</div>

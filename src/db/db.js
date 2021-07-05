@@ -7,7 +7,6 @@ async function connect() {
 	const connection = await mysql.createConnection(
 		"mysql://root:caio1206@localhost:3306/stock_manager"
 	);
-	console.log("Conectou no MySQL!");
 	global.connection = connection;
 	return connection;
 }
