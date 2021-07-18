@@ -34,4 +34,8 @@ routes.post("/admin", async (req, res) => {
 	return res.redirect("/admin");
 });
 
+routes.delete("/admin/:id", (req, res) => {
+	db.deleteProduct(req.params.id);
+});
+
 module.exports = routes;
