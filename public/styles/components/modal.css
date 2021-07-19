@@ -41,7 +41,7 @@
 	background: none;
 	cursor: pointer;
 
-	transition: 0.5s;
+	transition: 0.4s;
 }
 
 .modal .close-modal:hover {
@@ -55,7 +55,7 @@
 
 .modal .input-group label {
 	color: #000;
-	font-size: 1.25rem;
+	font-size: 1.125rem;
 }
 
 .modal .input-group input {
@@ -66,5 +66,5 @@
 	margin-top: 0.5rem;
 	font-size: 1.5rem;
 	border-radius: 0.5rem;
-	padding: 0.5rem 1rem;
+	padding: 0.25rem 1rem;
 }
