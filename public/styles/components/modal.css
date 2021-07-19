@@ -6,11 +6,12 @@
 	height: 100vh;
 
 	display: flex;
-	align-items: center;
+	align-items: start;
 	justify-content: center;
 }
 
 .modal {
+	margin-top: 12rem;
 	display: flex;
 	flex-direction: column;
 	background-color: #fff;
@@ -67,4 +68,8 @@
 	font-size: 1.5rem;
 	border-radius: 0.5rem;
 	padding: 0.25rem 1rem;
+}
+
+[none] {
+	display: none;
 }
