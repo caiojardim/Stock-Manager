@@ -17,6 +17,13 @@ async function selectProducts() {
 	return rows;
 }
 
+async function selectOneProduct(id) {
+	const conn = await connect();
+	const sql = "SELECT * FROM products WHERE id = ?;";
+	const values = [id];
+	return await conn.query(sql, values);
+}
+
 async function insertProduct(product) {
 	const conn = await connect();
 	const sql = "INSERT INTO products(name, amount, price) VALUES (?,?,?);";
