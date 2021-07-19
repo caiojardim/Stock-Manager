@@ -13,6 +13,11 @@ routes.get("/admin", async (req, res) => {
 	return res.render(views + "admin", { products });
 });
 
+routes.get("/admin/:id", async (req, res) => {
+	const product = await db.selectOneProduct(req.params.id);
+	res.json(product);
+});
+
 routes.post("/admin", async (req, res) => {
 	const product = req.body;
 	if (product.name.trim() === "") {

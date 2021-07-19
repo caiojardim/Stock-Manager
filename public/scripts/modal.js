@@ -1,5 +1,16 @@
+const buttonEditProduct = document.querySelectorAll(".edit button");
+buttonEditProduct.forEach((button) =>
+	button.addEventListener("click", function (e) {
+		const id = e.currentTarget.attributes.id.value;
+		fetch(`http://localhost:3000/admin/${id}`)
+			.then((response) => response.json())
+			.then((response) => response[0][0])
+			.then((product) => showModal(product));
+		console.log(id);
+	})
+);
 function showModal(product) {
-	console.log("Salve");
+	console.log(product);
 	const html = `
     <div class="modal">
 				<div class="modal-header">
@@ -10,15 +21,21 @@ function showModal(product) {
 					<div class="input-group">
 						<div class="input-wrapper name">
 							<label for="name">Nome:</label>
-							<input type="text" id="name" name="name" />
+							<input type="text" id="name" name="name"
+                value='${product.name}'
+              />
 						</div>
 						<div class="input-wrapper amount">
 							<label for="amount">Quantidade:</label>
-							<input type="number" id="amount" name="amount" />
+							<input type="number" id="amount" name="amount"
+                value='${product.amount}'
+              />
 						</div>
 						<div class="input-wrapper price">
 							<label for="price">Preço:</label>
-							<input type="number" step="0.01" id="price" name="price" />
+							<input type="number" step="0.01" id="price" name="price" 
+                value='${product.price}'
+              />
 						</div>
 						<button class="add">Update</button>
 					</div>
@@ -26,7 +43,6 @@ function showModal(product) {
 			</div>
   `;
 	const modal = document.querySelector(".modal-container");
-	console.log(modal.attributes);
 	modal.removeAttribute("none");
 	modal.innerHTML = html;
 }

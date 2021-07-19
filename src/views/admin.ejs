@@ -46,7 +46,7 @@
 						<td class="amount"><%= product.amount %></td>
 						<td class="price">R$<%= product.price.replace('.', ',') %></td>
 						<td class="edit">
-							<button onclick="showModal('<%= product %>')">
+							<button id="<%= product.id %>">
 								<img src="/images/edit-24.svg" alt="Editar Produto" />
 							</button>
 						</td>
