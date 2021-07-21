@@ -6,4 +6,5 @@
 <ul>
   <li>The basic of express</li>
   <li>How to integrate mySql with Javascript</li>
+  <li>Use eventListener instead inline event</li>
 </ul>
