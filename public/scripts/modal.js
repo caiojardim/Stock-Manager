@@ -6,18 +6,16 @@ buttonEditProduct.forEach((button) =>
 			.then((response) => response.json())
 			.then((response) => response[0][0])
 			.then((product) => showModal(product));
-		console.log(id);
 	})
 );
 function showModal(product) {
-	console.log(product);
 	const html = `
     <div class="modal">
 				<div class="modal-header">
 					<h1>Atualize o produto</h1>
 					<button class="close-modal" onclick="closeModal()">X</button>
 				</div>
-				<form method="post" action="/admin">
+				<form method="post" action="/admin/${product.id}">
 					<div class="input-group">
 						<div class="input-wrapper name">
 							<label for="name">Nome:</label>
@@ -42,6 +40,7 @@ function showModal(product) {
 				</form>
 			</div>
   `;
+
 	const modal = document.querySelector(".modal-container");
 	modal.removeAttribute("none");
 	modal.innerHTML = html;

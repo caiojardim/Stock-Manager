@@ -18,6 +18,15 @@ routes.get("/admin/:id", async (req, res) => {
 	res.json(product);
 });
 
+// put
+routes.post("/admin/:id", (req, res) => {
+	const product = req.body;
+	const id = req.params.id;
+	db.updateProduct(id, product);
+
+	res.redirect("/admin");
+});
+
 routes.post("/admin", async (req, res) => {
 	const product = req.body;
 	if (product.name.trim() === "") {
@@ -36,11 +45,12 @@ routes.post("/admin", async (req, res) => {
 		price: Number(product.price),
 	};
 	await db.insertProduct(formatedProduct);
-	return res.redirect("/admin");
+	res.redirect("/admin");
 });
 
 routes.delete("/admin/:id", (req, res) => {
 	db.deleteProduct(req.params.id);
+	res.redirect("/admin");
 });
 
 module.exports = routes;
